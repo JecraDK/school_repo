@@ -1,0 +1,29 @@
+SELECT * FROM countrylanguage 
+	 WHERE countrycode = 'AFG';
+
+SELECT * FROM countrylanguage 
+	 WHERE countrycode = 'TJK';
+
+SELECT * FROM countrylanguage 
+	 WHERE countrycode = 'UZB';
+
+SELECT * FROM countrylanguage 
+	 WHERE countrycode = 'AFG', 'TJK', 'UZB';
+
+SELECT countrycode FROM countrylanguage
+	WHERE language = 'Danish';
+
+SELECT language FROM countrylanguage
+	WHERE countrycode = 'ZAF'
+	ORDER BY language;
+
+SELECT language, percentage FROM countrylanguage
+	WHERE countrycode = 'AFG', 'TJK', UZB'
+	ORDER BY percentage;
+
+SELECT headofstate FROM country
+	WHERE continent = 'Europe';
+
+SELECT code, name, population FROM country
+	WHERE region = 'Southern an Central Asia'
+	ORDER BY population;
