@@ -1,0 +1,70 @@
+CREATE DATABASE worldTest;
+
+CREATE TABLE country (
+	code varchar(6) not null,
+	name varchar(20) not null,
+	continent varchar(20) not null,
+	region varchar(20) not null,
+	gnp decimal(20,10) not null,
+	gnpold decimal(20,10) not null,
+	surfacearea decimal(20,10) not null,
+	localname varchar(20) not null,
+	governmentform varchar(20) not null,
+	headofstate varchar(60) not null,
+	capital varchar(20) not null,
+	population int not null,
+	indepyear int not null,
+	lifeexpectancy decimal(20,10) not null,
+	code2 varchar(6) not null,
+	primary key (code)
+);
+
+CREATE TABLE city (
+	id auto_incremented not null,
+	name varchar(20) not null,
+	population int not null,
+	district varchar(20) not null,
+	countrycode int not null,
+	primary key (id),
+	foreign key (countrycode) references country (code)
+);
+
+CREATE TABLE countrylanguage (
+	language varchar(20) not null,
+	countrycode int not null,
+	isofficial boolean not null,
+	percentage decimal(20,10) not null
+	primary key (language),
+	foreign key (countrycode) references country (code)
+);
+
+INSERT INTO country VALUES (
+	'DNK', 'Denmark', 'Europe', 'Nordic Countries,
+	'174099.00', '169264.00', '43094.00', 'Danmark',
+	'Constitutional Monarchy', 'Magrethe II',
+	'Copenhagen', '5330000', '800', '76.5', 'DK'	
+);
+
+INSERT INTO city VALUES (
+	'Copenhagen', '500000', 'Hovedstaden', 'DKN'
+);
+
+INSERT INTO city VALUES (
+	'Aarhus', '300000', 'Region Midt', 'DKN'
+);
+
+INSERT INTO city VALUES (
+	'Odense', '180000', 'Region Syd', 'DKN'
+);
+
+INSERT INTO city VALUES (
+	'Kolding', '60000', 'Region Syd', 'DKN'
+);
+
+INSERT INTO countrylanguage VALUES (
+	'Danish', 'DKN', '1', '98.1'
+);
+
+INSERT INTO countrylanguage VALUES (
+	'Swedish', 'DKN', '0', '1.1'
+);
